@@ -1,0 +1,64 @@
+name:                haskell-checking-account
+version:             0.1.0.0
+github:              "jeopard/haskell-checking-account"
+license:             BSD3
+author:              "Konstantinos Dadamis"
+maintainer:          "me@kostis.io"
+copyright:           "2019 Konstantinos Dadamis"
+
+extra-source-files:
+- README.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/jeopard/haskell-checking-account#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson
+- bytestring
+- containers
+- hspec
+- hspec-wai
+- hspec-wai-json
+- http-types
+- mtl
+- scientific
+- scotty
+- sorted-list
+- stm
+- text
+- time
+- uuid
+- wai
+- wai-extra
+
+library:
+  source-dirs: src
+
+executables:
+  haskell-checking-account-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - haskell-checking-account
+
+tests:
+  haskell-checking-account-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - haskell-checking-account
